@@ -1,9 +1,9 @@
 #include "motor.h"
 
-void MOTOR_CONTROL(uint8_t direction) //控制函数
+void MOTOR_CONTROL(uint8_t direction)
 {
 	static uint8_t step = 0;
-	if (direction == 1) //反转
+	if (direction == 1)
 	{
 		if (step == 0)
 		{
@@ -67,7 +67,7 @@ void MOTOR_CONTROL(uint8_t direction) //控制函数
 	default:
 		break;
 	}
-	if (direction == 0) //正转
+	if (direction == 0)
 	{
 		step++;
 		if (8 == step)
@@ -77,7 +77,7 @@ void MOTOR_CONTROL(uint8_t direction) //控制函数
 	}
 }
 
-void StepMotor_Start(uint16_t angle, uint8_t direction) //驱动函数
+void StepMotor_Start(uint16_t angle, uint8_t direction)
 {
 	int i = 0;
 	int pulse = (int)((double)(angle / 5.625) * 64);
@@ -88,7 +88,7 @@ void StepMotor_Start(uint16_t angle, uint8_t direction) //驱动函数
 	}
 }
 
-void StepMotor_Stop(void) //停止函数
+void StepMotor_Stop(void)
 {
 	MOTOR_1_L;
 	MOTOR_2_L;
